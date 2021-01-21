@@ -1,10 +1,11 @@
-FROM alpine:3.8
+ARG ALPINE_VERSION=3.12
+FROM alpine:${ALPINE_VERSION}
 
 ARG APP_USER=satisfy
 
 ENV \
-    COMPOSER_VERSION=1.8.4 \
-    SATISFY_VERSION=3.0.4 \
+    COMPOSER_VERSION=2.0.8 \
+    SATISFY_VERSION=3.2.7 \
     LD_PRELOAD=/usr/lib/preloadable_libiconv.so \
     PHP_INI_PATH=/etc/php7/php.ini \
     PHP_INI_SCAN_DIR=/etc/php7/conf.d \

@@ -61,10 +61,12 @@ fi
 
 if [[ "${SSH_PRIVATE_KEY}" != "unset" ]] && [[ ! -e ${APP_ROOT}/id_rsa ]]; then
   echo "${SSH_PRIVATE_KEY}" > ${APP_ROOT}/id_rsa
+fi
+
+if [[ -f ${APP_ROOT}/id_rsa ]]; then
   chmod 400 ${APP_ROOT}/id_rsa
   chown ${APP_USER}:${APP_USER} ${APP_ROOT}/id_rsa
 fi
-
 
 if [[ ! -e ${APP_USER_HOME}/.ssh ]]; then
   mkdir ${APP_USER_HOME}/.ssh
